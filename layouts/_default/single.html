@@ -1,0 +1,32 @@
+{{ define "main" }}
+<article class="section" style="max-width:720px;margin:0 auto;">
+
+  <h1 style="font-size:36px;font-weight:700;margin-bottom:8px;letter-spacing:-0.02em;">{{ .Title }}</h1>
+  <div style="font-size:14px;color:var(--color-text-soft);margin-bottom:32px;">
+    {{ .Date.Format "2006年1月2日" }}
+    {{ with .Params.category }}· {{ . }}{{ end }}
+    {{ with .Params.reading_time }}· 阅读 {{ . }}{{ end }}
+  </div>
+
+  {{ if eq .Section "videos" }}
+  <div class="embed-box" style="margin-bottom:24px;">
+    {{ .Params.embed | safeHTML }}
+  </div>
+  {{ end }}
+
+  {{ with .Params.image }}
+  <img src="{{ . }}" alt="{{ $.Title }}" style="border-radius:16px;margin-bottom:24px;width:100%;">
+  {{ end }}
+
+  <div style="font-size:16px;line-height:1.9;color:var(--color-text-soft);">
+    {{ .Content }}
+  </div>
+
+  {{ with .Params.tags }}
+  <div class="article-tags" style="margin-top:32px;">
+    {{ range . }}<span class="article-tag">#{{ . }}</span>{{ end }}
+  </div>
+  {{ end }}
+
+</article>
+{{ end }}

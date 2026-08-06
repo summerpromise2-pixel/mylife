@@ -1,0 +1,16 @@
+# Hugo
+/public/
+/resources/_gen/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Node (if you add npm later)
+node_modules/

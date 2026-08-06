@@ -1,0 +1,79 @@
+{{ define "main" }}
+<section class="section">
+  <h1 style="font-size:36px;font-weight:700;margin-bottom:8px;">{{ .Title }}</h1>
+  {{ with .Params.description }}
+  <p style="color:var(--color-text-soft);margin-bottom:32px;">{{ . }}</p>
+  {{ end }}
+
+  {{ if eq .Section "photos" }}
+  <!-- 照片：瀑布流 -->
+  <div class="photo-grid">
+    {{ range .Pages }}
+    <a class="media-thumb" href="{{ .RelPermalink }}">
+      <img src="{{ .Params.image | default "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=600&q=70" }}">
+    </a>
+    {{ end }}
+  </div>
+
+  {{ else if eq .Section "videos" }}
+  <!-- 视频：卡片列表 -->
+  <div class="video-list">
+    {{ range .Pages }}
+    <article class="media-card">
+      <a href="{{ .RelPermalink }}">
+        <div class="embed-box">
+          {{ .Params.embed | safeHTML }}
+        </div>
+        <h3 class="media-title">{{ .Title }}</h3>
+        <p class="media-date">{{ .Date.Format "2006年1月2日" }}</p>
+      </a>
+    </article>
+    {{ end }}
+  </div>
+
+  {{ else if eq .Section "articles" }}
+  <!-- 文章：列表 -->
+  <div class="article-list">
+    {{ range .Pages }}
+    <article class="article-item">
+      <div class="article-meta">{{ .Date.Format "2006.01.02" }}{{ with .Params.reading_time }} · 阅读 {{ . }}{{ end }}</div>
+      <h2 class="article-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+      <p class="article-excerpt">{{ .Summary }}</p>
+      {{ with .Params.tags }}
+      <div class="article-tags">
+        {{ range . }}<span class="article-tag">#{{ . }}</span>{{ end }}
+      </div>
+      {{ end }}
+    </article>
+    {{ end }}
+  </div>
+
+  {{ else if eq .Section "stories" }}
+  <!-- 故事：图文并排 -->
+  {{ range .Pages }}
+  <article style="margin-bottom:60px;">
+    <a href="{{ .RelPermalink }}" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;">
+      {{ $odd := mod (add .Weight 1) 2 }}
+      {{ if eq $odd 1 }}
+      <img src="{{ .Params.image | default "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=70" }}" style="border-radius:16px;" alt="{{ .Title }}">
+      <div>
+        <div style="font-size:13px;color:var(--color-text-soft);margin-bottom:8px;">{{ .Date.Format "2006.01.02" }}{{ with .Params.category }} · {{ . }}{{ end }}</div>
+        <h2 style="font-size:28px;font-weight:700;margin-bottom:16px;letter-spacing:-0.02em;">{{ .Title }}</h2>
+        <p style="color:var(--color-text-soft);font-size:15px;line-height:1.8;margin-bottom:16px;">{{ .Summary }}</p>
+        <span style="color:var(--color-accent);font-size:14px;">阅读全文 →</span>
+      </div>
+      {{ else }}
+      <div>
+        <div style="font-size:13px;color:var(--color-text-soft);margin-bottom:8px;">{{ .Date.Format "2006.01.02" }}{{ with .Params.category }} · {{ . }}{{ end }}</div>
+        <h2 style="font-size:28px;font-weight:700;margin-bottom:16px;letter-spacing:-0.02em;">{{ .Title }}</h2>
+        <p style="color:var(--color-text-soft);font-size:15px;line-height:1.8;margin-bottom:16px;">{{ .Summary }}</p>
+        <span style="color:var(--color-accent);font-size:14px;">阅读全文 →</span>
+      </div>
+      <img src="{{ .Params.image | default "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=70" }}" style="border-radius:16px;" alt="{{ .Title }}">
+      {{ end }}
+    </a>
+  </article>
+  {{ end }}
+  {{ end }}
+</section>
+{{ end }}

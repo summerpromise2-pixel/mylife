@@ -1,0 +1,39 @@
+baseURL: "https://mylife.yourdomain.com/"
+title: "MyLife."
+locale: "zh-CN"
+hasCJKLanguage: true
+ignoreLogs:
+  - warning-goldmark-raw-html
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+paginate: 9
+summaryLength: 150
+enableEmoji: true
+
+menu:
+  main:
+    - name: 故事
+      url: /stories/
+      weight: 1
+    - name: 视频
+      url: /videos/
+      weight: 2
+    - name: 照片
+      url: /photos/
+      weight: 3
+    - name: 时间轴
+      url: /timeline/
+      weight: 4
+    - name: 文章
+      url: /articles/
+      weight: 5
+    - name: 关于我
+      url: /about/
+      weight: 6
+
+params:
+  description: "记录时间，收藏人生。"
+  author: "Your Name"
+  dateFormat: "2006年1月2日"

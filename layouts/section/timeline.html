@@ -1,0 +1,26 @@
+{{ define "main" }}
+<section class="section">
+  <h1 style="font-size:36px;font-weight:700;margin-bottom:8px;">{{ .Title }}</h1>
+  <p style="color:var(--color-text-soft);margin-bottom:48px;">{{ .Params.description | default "每一个重要瞬间，都值得被记住" }}</p>
+
+  {{ range .Params.events }}
+  <div class="year-block">
+    <div class="year-heading">
+      <span class="y">{{ .year }}</span>
+      {{ with .theme }}<span class="y-cn">{{ . }}</span>{{ end }}
+    </div>
+    {{ range .items }}
+    <div class="event-row">
+      <span class="event-date">{{ .date }}</span>
+      <div class="event-content">
+        <h4>{{ .title }}</h4>
+        {{ with .desc }}<p>{{ . }}</p>{{ end }}
+      </div>
+    </div>
+    {{ end }}
+  </div>
+  {{ end }}
+
+  {{ .Content }}
+</section>
+{{ end }}
