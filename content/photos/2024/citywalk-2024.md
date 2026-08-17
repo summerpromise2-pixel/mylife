@@ -1,7 +1,7 @@
 ---
 title: "周末City Walk"
 date: 2024-08-10
-category: 日常
+category: 城市漫步
 image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=70"
 gallery:
   - "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=70"

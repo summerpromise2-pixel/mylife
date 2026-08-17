@@ -6,11 +6,12 @@
   {{ end }}
 
   {{ if eq .Section "photos" }}
-  <!-- 照片：瀑布流 -->
+  <!-- 照片：年份归档网格 -->
   <div class="photo-grid">
     {{ range .Pages }}
     <a class="media-thumb" href="{{ .RelPermalink }}">
       <img src="{{ .Params.image | default (index .Params.gallery 0) | default "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=600&q=70" }}">
+      <span class="album-title">{{ .Title }}</span>
     </a>
     {{ end }}
   </div>

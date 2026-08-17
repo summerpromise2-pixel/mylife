@@ -1,7 +1,7 @@
 ---
 title: "建站记录截图"
-date: 2024-08-16
-category: 日常
+date: 2026-08-16
+category: 建站
 image: "/images/screenshot-demo.png"
 gallery:
   - "/images/screenshot-demo.png"

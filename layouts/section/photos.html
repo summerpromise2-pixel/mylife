@@ -1,0 +1,24 @@
+{{ define "main" }}
+<section class="section">
+  <h1 style="font-size:36px;font-weight:700;margin-bottom:8px;">{{ .Title }}</h1>
+  {{ with .Params.description }}
+  <p style="color:var(--color-text-soft);margin-bottom:32px;">{{ . }}</p>
+  {{ end }}
+
+  <!-- 照片总览：按年份分组归档 -->
+  {{ range .Sections.ByTitle }}
+  <div style="margin-bottom:56px;">
+    <h2 style="font-size:26px;font-weight:700;margin-bottom:4px;letter-spacing:-0.02em;">{{ .Title }} 年</h2>
+    <p style="font-size:13px;color:var(--color-text-soft);margin-bottom:16px;">{{ len .Pages }} 个相册</p>
+    <div class="photo-grid">
+      {{ range .Pages.ByDate.Reverse }}
+      <a class="media-thumb" href="{{ .RelPermalink }}">
+        <img src="{{ .Params.image | default (index .Params.gallery 0) | default "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=600&q=70" }}" alt="{{ .Title }}">
+        <span class="album-title">{{ .Title }}</span>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+  {{ end }}
+</section>
+{{ end }}

@@ -1,7 +1,7 @@
 ---
 title: "莫干山徒步"
 date: 2024-04-20
-category: 户外
+category: 旅游
 image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=800&q=70"
 ---
 
