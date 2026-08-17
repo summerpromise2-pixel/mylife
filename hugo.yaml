@@ -8,7 +8,8 @@ markup:
   goldmark:
     renderer:
       unsafe: true
-paginate: 9
+pagination:
+  pagerSize: 9
 summaryLength: 150
 enableEmoji: true
 
