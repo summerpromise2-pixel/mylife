@@ -14,3 +14,6 @@ Thumbs.db
 
 # Node (if you add npm later)
 node_modules/
+
+# Cloudflare Wrangler local cache
+.wrangler/
