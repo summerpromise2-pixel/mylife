@@ -6,8 +6,8 @@
     <h1>记录时间，<br>收藏人生。</h1>
     <p>记录生活中的每一个瞬间，见证成长与改变。</p>
     <div class="hero-buttons">
-      <a href="{{ "/stories/" | absURL }}" class="btn-primary">探索我的故事 →</a>
-      <a href="{{ "/about/" | absURL }}" class="btn-ghost">了解更多 ›</a>
+      <a href="{{ "stories/" | relURL }}" class="btn-primary">探索我的故事 →</a>
+      <a href="{{ "about/" | relURL }}" class="btn-ghost">了解更多 ›</a>
     </div>
   </div>
 </section>
@@ -15,25 +15,25 @@
 <!-- 功能入口 -->
 <div class="feature-grid">
   <div class="feature-card">
-    <a href="{{ "/videos/" | absURL }}" class="feature-item">
+    <a href="{{ "videos/" | relURL }}" class="feature-item">
       <div class="feature-icon video">🎥</div>
       <h3>视频记录</h3>
       <p>观看我的生活片段和重要时刻</p>
       <span class="more">查看视频 ›</span>
     </a>
-    <a href="{{ "/photos/" | absURL }}" class="feature-item">
+    <a href="{{ "photos/" | relURL }}" class="feature-item">
       <div class="feature-icon photo">🖼️</div>
       <h3>照片相册</h3>
       <p>浏览我的照片，回忆美好瞬间</p>
       <span class="more">查看相册 ›</span>
     </a>
-    <a href="{{ "/timeline/" | absURL }}" class="feature-item">
+    <a href="{{ "timeline/" | relURL }}" class="feature-item">
       <div class="feature-icon timeline">🕐</div>
       <h3>人生时间轴</h3>
       <p>探索我的成长历程和重要里程碑</p>
       <span class="more">查看时间轴 ›</span>
     </a>
-    <a href="{{ "/articles/" | absURL }}" class="feature-item">
+    <a href="{{ "articles/" | relURL }}" class="feature-item">
       <div class="feature-icon article">📝</div>
       <h3>我的文章</h3>
       <p>阅读我的思考和生活感悟</p>
@@ -48,7 +48,7 @@
 <section class="section">
   <div class="section-header">
     <h2 class="section-title">最新动态</h2>
-    <a href="{{ "/videos/" | absURL }}" class="section-link">查看全部 ›</a>
+    <a href="{{ "videos/" | relURL }}" class="section-link">查看全部 ›</a>
   </div>
   <div class="media-grid">
     {{ range $latest }}
@@ -77,7 +77,7 @@
 <section class="section">
   <div class="section-header">
     <h2 class="section-title">人生时间轴</h2>
-    <a href="{{ "/timeline/" | absURL }}" class="section-link">查看完整时间轴 ›</a>
+    <a href="{{ "timeline/" | relURL }}" class="section-link">查看完整时间轴 ›</a>
   </div>
   <div class="timeline">
     <div class="timeline-list">
