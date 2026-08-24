@@ -1,5 +1,4 @@
 baseURL: "https://summerpromise2-pixel.github.io/mylife/"
-relativeURLs: true
 title: "MyLife."
 locale: "zh-CN"
 hasCJKLanguage: true
