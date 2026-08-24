@@ -1,11 +1,11 @@
 <nav class="nav">
   <div class="nav-inner">
-    <a href="{{ "/" | relURL }}" class="logo">{{ .Site.Title }}</a>
+    <a href="{{ "/" | absURL }}" class="logo">{{ .Site.Title }}</a>
     <ul class="nav-menu">
-      <li><a href="{{ "/" | relURL }}"{{ if .IsHome }} class="active"{{ end }}>首页</a></li>
+      <li><a href="{{ "/" | absURL }}"{{ if .IsHome }} class="active"{{ end }}>首页</a></li>
       {{ $current := .RelPermalink }}
       {{ range .Site.Menus.main }}
-      <li><a href="{{ .URL }}"{{ if eq $current .URL }} class="active"{{ end }}>{{ .Name }}</a></li>
+      <li><a href="{{ .URL | absURL }}"{{ if eq $current .URL }} class="active"{{ end }}>{{ .Name }}</a></li>
       {{ end }}
     </ul>
     <div class="nav-actions">
